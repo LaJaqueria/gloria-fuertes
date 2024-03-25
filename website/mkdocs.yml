@@ -1,0 +1,156 @@
+# 1. Información de la web
+site_name: Gloria Fuertes
+site_description: Homenaje jaqueriense a la gran Gloria Fuertes
+site_author: La Jaqueria
+site_url: https://LaJaqueria.github.io/gloria-fuertes
+
+# 2. Repositorio
+repo_name: lajaqueria/gloria-fuertes
+repo_url: https://github.com/LaJaqueria/gloria-fuertes
+edit_uri: ""
+
+# 3. Footer
+copyright: Copyright &copy; 2024 La Jaquería
+extra:
+  # Footer - No poner que está hecho con MkDocs
+  generator: false
+  # Footer - Iconos
+  social:
+    # Blog
+    # Github
+    - icon: fontawesome/brands/github
+      link: https://github.com/LaJaqueria
+      name: Github de La Jaquería
+    # Twitter
+    - icon: fontawesome/brands/twitter
+      link: https://twitter.com/lajaqueria
+      name: Twitter de La Jaquería
+    # Linkedin
+    - icon: fontawesome/brands/linkedin
+      link: https://www.linkedin.com/company/lajaqueria/
+      name: Linkedin de La Jaquería
+
+# 4. Navegación
+nav:
+  # Modelo para empezar: Intro, Info del autor y la instalación
+  - Proyecto:
+    - index.md # TODO:
+    - Quienes somos: about.md # TODO:
+  - Parte técnica:
+      - Materiales: materiales.md # TODO:
+      - Electrónica: electronica.md # TODO:
+      - Software: software.md # TODO:
+
+# 5. Google Analytics
+#google_analytics:
+#  - !!python/object/apply:os.getenv ["GOOGLE_ANALYTICS_KEY"]
+#  - auto
+
+# 6. Configuración del tema
+theme:
+  name: material
+  # Color - Fuentes - Lenguaje
+  palette:
+    # Light Mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      toggle:
+        icon: material/toggle-switch
+        name: Modo Oscuro
+      primary: blue grey
+      accent: red
+    # Dark Mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      toggle:
+        icon: material/toggle-switch-off-outline
+        name: Modo Claro
+      primary: blue grey
+      accent: red
+  font:
+    text: Roboto
+    code: Roboto Mono
+  # Lenguage
+  language: es
+  logo: img/logo.svg
+  favicon: img/jopta.jpg
+  # Caracteristicas especiales
+  features:
+    - navigation.instant
+    - navigation.tracking
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.sections
+    - navigation.expand
+    - navigation.indexes
+    - navigation.top
+    # Experimental
+    - search.suggest
+    - search.highlight
+    - search.share
+  # Icono del repo
+  icon:
+    repo: fontawesome/brands/github
+
+# 7. Extensiones
+markdown_extensions:
+  # Python Markdown
+  - abbr
+  - admonition
+  - attr_list
+  - def_list
+  - footnotes
+  - md_in_html
+  - tables
+  - toc:
+      permalink: true
+  # Python Markdown Extensions
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.betterem:
+      smart_enable: all
+  - pymdownx.caret
+  - pymdownx.critic
+  - pymdownx.details
+  - attr_list
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - pymdownx.highlight:
+      anchor_linenums: true
+      linenums: true
+      linenums_style: pymdownx-inline
+  - pymdownx.inlinehilite
+  - pymdownx.keys
+  - pymdownx.mark
+  - pymdownx.smartsymbols
+  - pymdownx.snippets
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.tilde
+
+# 8. Necesario para la extensión pydownx.arithmatex
+extra_javascript:
+  - js/mathjax.js
+  - https://polyfill.io/v3/polyfill.min.js?features=es6
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+
+# 9. Plugins
+plugins:
+  - search:
+      lang: es
+      separator: '[\s\-,:!=\[\]()"/]+|\.(?!\d)|&[lg]t;|(?!\b)(?=[A-Z][a-z])'
+  - glightbox:
+      touchNavigation: true
+      loop: false
+      effect: zoom
+      slide_effect: slide
+      width: "100%"
+      height: auto
+      zoomable: true
+      draggable: true
+      auto_caption: false
+      caption_position: bottom
