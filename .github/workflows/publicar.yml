@@ -38,6 +38,7 @@ jobs:
         run: pip install -r requirements.txt
     
       - name: 🛠️ Build de la documentacion
+        working-directory: ./website
         run: mkdocs build
 
 
@@ -76,4 +77,5 @@ jobs:
         run: pip install -r requirements.txt
     
       - name: 🚀 Publicar documentacion
+        working-directory: ./website
         run: mkdocs gh-deploy --force
