@@ -38,6 +38,7 @@ jobs:
             mkdocs-material-
     
       - name: 📥 Instalar Dependencias
+        working-directory: ./website
         run: pip install -r requirements.txt
     
       - name: 🛠️ Build de la documentacion
@@ -77,6 +78,7 @@ jobs:
             mkdocs-material-
     
       - name: 📥 Instalar Dependencias
+        working-directory: ./website
         run: pip install -r requirements.txt
     
       - name: 🚀 Publicar documentacion
