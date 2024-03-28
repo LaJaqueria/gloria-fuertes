@@ -1,0 +1,393 @@
+[
+    {
+        "id": "3c10240c2e537880",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "463003d456c5906f",
+        "type": "mqtt-broker",
+        "name": "BROKER",
+        "broker": "${MQTT_HOST}",
+        "port": "${MQTT_PORT}",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closeRetain": "false",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "f711ca9564506793",
+        "type": "ui-base",
+        "name": "Gloria Fuertes",
+        "path": "/dashboard",
+        "includeClientData": true,
+        "acceptsClientConfig": [
+            "ui-notification",
+            "ui-control"
+        ],
+        "showPathInSidebar": false,
+        "navigationStyle": "default"
+    },
+    {
+        "id": "2dca85fb898ad0bd",
+        "type": "ui-theme",
+        "name": "Default Theme",
+        "colors": {
+            "surface": "#ffffff",
+            "primary": "#0094CE",
+            "bgPage": "#eeeeee",
+            "groupBg": "#ffffff",
+            "groupOutline": "#cccccc"
+        },
+        "sizes": {
+            "pagePadding": "12px",
+            "groupGap": "12px",
+            "groupBorderRadius": "4px",
+            "widgetGap": "12px"
+        }
+    },
+    {
+        "id": "00b8c58c01dfe258",
+        "type": "ui-page",
+        "name": "Jugando con la API",
+        "ui": "f711ca9564506793",
+        "path": "/playAPI",
+        "icon": "home",
+        "layout": "grid",
+        "theme": "2dca85fb898ad0bd",
+        "order": -1,
+        "className": "",
+        "visible": "true",
+        "disabled": "false"
+    },
+    {
+        "id": "6bc82c7e346ba07c",
+        "type": "ui-group",
+        "name": "MQTT conexion",
+        "page": "00b8c58c01dfe258",
+        "width": "6",
+        "height": "1",
+        "order": -1,
+        "showTitle": true,
+        "className": "",
+        "visible": "true",
+        "disabled": "false"
+    },
+    {
+        "id": "d0345f9b7f73e9c3",
+        "type": "ui-group",
+        "name": "LEDs",
+        "page": "00b8c58c01dfe258",
+        "width": "6",
+        "height": "1",
+        "order": -1,
+        "showTitle": true,
+        "className": "",
+        "visible": "true",
+        "disabled": "false"
+    },
+    {
+        "id": "f7f46f00ec761812",
+        "type": "mqtt in",
+        "z": "3c10240c2e537880",
+        "name": "MQTT RX",
+        "topic": "wled/6cb64c/#",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "463003d456c5906f",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 100,
+        "y": 260,
+        "wires": [
+            [
+                "e65b78d88883a4c6",
+                "f07dd4939fc388b6"
+            ]
+        ]
+    },
+    {
+        "id": "3ba09d6ebc617a58",
+        "type": "status",
+        "z": "3c10240c2e537880",
+        "name": "MQTT Status",
+        "scope": [
+            "f7f46f00ec761812",
+            "97131f544fedf1f5"
+        ],
+        "x": 110,
+        "y": 120,
+        "wires": [
+            [
+                "0279d9ece28ab5e4",
+                "faa01f8e5f82d57d"
+            ]
+        ]
+    },
+    {
+        "id": "0279d9ece28ab5e4",
+        "type": "debug",
+        "z": "3c10240c2e537880",
+        "name": "MQTT status",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 110,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "84f8a5abace79c6e",
+        "type": "ui-led",
+        "z": "3c10240c2e537880",
+        "name": "MQTT RX Connection",
+        "group": "6bc82c7e346ba07c",
+        "order": -1,
+        "width": "3",
+        "height": "1",
+        "label": "MQTT RX",
+        "labelPlacement": "left",
+        "labelAlignment": "flex-start",
+        "states": [
+            {
+                "value": "red",
+                "valueType": "str",
+                "color": "#ff0000"
+            },
+            {
+                "value": "green",
+                "valueType": "str",
+                "color": "#00ff00"
+            },
+            {
+                "value": "orange",
+                "valueType": "str",
+                "color": "#ff7800"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "square",
+        "showBorder": true,
+        "showGlow": true,
+        "x": 680,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "faa01f8e5f82d57d",
+        "type": "function",
+        "z": "3c10240c2e537880",
+        "name": "MQTT connection",
+        "func": "const /** @type {String}*/ status = msg.status.text\n\nif (status.includes('connected')) return { ...msg, payload: 'green' }\nif (status.includes('connecting')) return { ...msg, payload: 'orange' }\nreturn { ...msg, payload: 'red' }",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 310,
+        "y": 120,
+        "wires": [
+            [
+                "7e692d496a09c293"
+            ]
+        ]
+    },
+    {
+        "id": "f07dd4939fc388b6",
+        "type": "switch",
+        "z": "3c10240c2e537880",
+        "name": "Topic",
+        "property": "topic",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "wled/6cb64c/status",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 250,
+        "y": 260,
+        "wires": [
+            [
+                "3e250a4b5caa3440"
+            ]
+        ]
+    },
+    {
+        "id": "e65b78d88883a4c6",
+        "type": "debug",
+        "z": "3c10240c2e537880",
+        "name": "MQTT RX",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "{\t    \"topic\": msg.topic,\t    \"payload\": msg.payload\t}",
+        "targetType": "jsonata",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 250,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "670e7422911c78dd",
+        "type": "ui-led",
+        "z": "3c10240c2e537880",
+        "name": "MQTT TX Connection",
+        "group": "6bc82c7e346ba07c",
+        "order": -1,
+        "width": "3",
+        "height": "1",
+        "label": "MQTT TX",
+        "labelPlacement": "left",
+        "labelAlignment": "flex-start",
+        "states": [
+            {
+                "value": "red",
+                "valueType": "str",
+                "color": "#ff0000"
+            },
+            {
+                "value": "green",
+                "valueType": "str",
+                "color": "#00ff00"
+            },
+            {
+                "value": "orange",
+                "valueType": "str",
+                "color": "#ff7800"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "square",
+        "showBorder": true,
+        "showGlow": true,
+        "x": 680,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "7e692d496a09c293",
+        "type": "switch",
+        "z": "3c10240c2e537880",
+        "name": "",
+        "property": "status.source.type",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "mqtt in",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "mqtt out",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 490,
+        "y": 120,
+        "wires": [
+            [
+                "84f8a5abace79c6e"
+            ],
+            [
+                "670e7422911c78dd"
+            ]
+        ]
+    },
+    {
+        "id": "97131f544fedf1f5",
+        "type": "mqtt out",
+        "z": "3c10240c2e537880",
+        "name": "MQTT TX",
+        "topic": "",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "463003d456c5906f",
+        "x": 680,
+        "y": 420,
+        "wires": []
+    },
+    {
+        "id": "3e250a4b5caa3440",
+        "type": "ui-led",
+        "z": "3c10240c2e537880",
+        "name": "MQTT LEDs",
+        "group": "d0345f9b7f73e9c3",
+        "order": -1,
+        "width": "3",
+        "height": "1",
+        "label": "MQTT",
+        "labelPlacement": "left",
+        "labelAlignment": "flex-start",
+        "states": [
+            {
+                "value": "offline",
+                "valueType": "str",
+                "color": "#ff0000"
+            },
+            {
+                "value": "online",
+                "valueType": "str",
+                "color": "#00ff00"
+            },
+            {
+                "value": "disconnecting",
+                "valueType": "str",
+                "color": "#ff7800"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "square",
+        "showBorder": true,
+        "showGlow": true,
+        "x": 410,
+        "y": 260,
+        "wires": []
+    }
+]

@@ -1,0 +1,35 @@
+version: '3'
+name: gloria-fuertes
+
+services:
+
+  nodered:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: nodeled
+    restart: unless-stopped
+    environment:
+      - MQTT_HOST=${MQTT_HOST}
+      - MQTT_PORT=${MQTT_PORT}
+      - MQTT_USER=${MQTT_USER}
+      - MQTT_PASS=${MQTT_PASS}
+    ports:
+      - ${NODE_RED_PORT}:1880
+    volumes:
+      - ${NODE_RED_DB}:/config
+      - ${NODE_RED_CONFIG}:/db
+      - ${NODE_RED_DATA}:/data
+      - ${NODE_RED_STATIC}:/static
+      - ${NODE_RED_TESTS}:/tests
+
+  # mosquitto:
+  #   image: eclipse-mosquitto:2
+  #   restart: unless-stopped
+  #   ports:
+  #     - ${MQTT_PORT}:1883
+  #     - ${MQTT_WEBSOCKET}:9001
+  #   volumes:
+  #     - ${MQTT_CONFIG}:/config
+  #     - ${MQTT_DATA}:/data
+  #     - ${MQTT_LOG}:/log
