@@ -1,6 +1,7 @@
 name: Publicar documentacion
 
-on: 
+on:
+  workflow_dispatch:
   push:
     paths:
       - website/**
