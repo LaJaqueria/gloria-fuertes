@@ -9,4 +9,8 @@ RUN mkdir -p /config && chown node-red:node-red /config && chmod -R 777 /config 
 
 USER node-red
 
-RUN npm i @flowfuse/node-red-dashboard @flowfuse/node-red-dashboard-2-ui-led
+RUN npm i \
+    @flowfuse/node-red-dashboard \
+    @flowfuse/node-red-dashboard-2-ui-led \
+    fast-deep-equal
+#    @wdns/vue-code-block
