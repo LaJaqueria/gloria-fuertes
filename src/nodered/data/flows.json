@@ -46,7 +46,7 @@
         ],
         "x": 44,
         "y": 379,
-        "w": 1428,
+        "w": 1398,
         "h": 748
     },
     {
@@ -61,11 +61,12 @@
         },
         "nodes": [
             "907d763c3f58256d",
-            "b87e7599f64c72dc"
+            "b87e7599f64c72dc",
+            "9873196535510a0d"
         ],
         "x": 74,
         "y": 1679,
-        "w": 152,
+        "w": 252,
         "h": 122
     },
     {
@@ -80,11 +81,12 @@
         },
         "nodes": [
             "0b67d7419826913c",
-            "8134d3bc85bd86a5"
+            "8134d3bc85bd86a5",
+            "ce8dcbeed6162eed"
         ],
         "x": 74,
         "y": 1839,
-        "w": 152,
+        "w": 272,
         "h": 122
     },
     {
@@ -99,11 +101,12 @@
         },
         "nodes": [
             "86def6e91488522c",
-            "41a67525d94fed9d"
+            "41a67525d94fed9d",
+            "5b74632d0f90ee5a"
         ],
         "x": 74,
         "y": 1999,
-        "w": 172,
+        "w": 272,
         "h": 122
     },
     {
@@ -170,20 +173,22 @@
             "e6b49c869cfdc5c4",
             "204eaa0fe8c45c60",
             "ae8846d34d666554",
-            "9671e8ee1e2dad7c",
-            "7978870f4e683225",
             "25531fa04d2f43aa",
             "c8b250a9e7e28599",
-            "c2e8ab761f3ae38f",
             "88e4ea03804ad804",
             "696f7274e8a285f2",
             "9b9d05bf24fd7bd7",
             "b7e557deda1acf76",
-            "9690ddef717a298d"
+            "9690ddef717a298d",
+            "25aaa34384ac2faf",
+            "1c975c1a358cd09d",
+            "9c5e16627aee88a6",
+            "ea5340026ccc4afb",
+            "71e1758536bb25fb"
         ],
         "x": 574,
         "y": 819,
-        "w": 872,
+        "w": 842,
         "h": 282
     },
     {
@@ -360,7 +365,7 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1170,
+        "x": 1230,
         "y": 160,
         "wires": []
     },
@@ -422,8 +427,8 @@
         "links": [
             "9e138f59e24649cb"
         ],
-        "x": 95,
-        "y": 460,
+        "x": 105,
+        "y": 500,
         "wires": [
             [
                 "9c6bf3c28f43a6e7"
@@ -444,8 +449,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 420,
-        "y": 420,
+        "x": 430,
+        "y": 460,
         "wires": []
     },
     {
@@ -457,7 +462,7 @@
         "order": 2,
         "width": "2",
         "height": "1",
-        "name": "ON",
+        "name": "ON Label",
         "label": "ON:",
         "format": "{{msg.payload}}",
         "layout": "row-left",
@@ -466,7 +471,7 @@
         "fontSize": 16,
         "color": "#717171",
         "className": "",
-        "x": 740,
+        "x": 660,
         "y": 460,
         "wires": []
     },
@@ -537,7 +542,7 @@
         "z": "8547126888e8b68f",
         "g": "1e3e76623050340a",
         "name": "Set ON Request",
-        "func": "const state = { ...flow.get('state') }\n\n\nstate.on = (msg.payload === 't') ? !state.on : msg.payload\n\n\nreturn { payload: state }",
+        "func": "const state = { ...flow.get('state') }\n\nstate.on = (msg.payload === 't') ? !state.on : msg.payload\n\nreturn { payload: state }",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -562,8 +567,8 @@
         "links": [
             "804f88f20397b5bc"
         ],
-        "x": 325,
-        "y": 460,
+        "x": 335,
+        "y": 500,
         "wires": []
     },
     {
@@ -601,7 +606,9 @@
         "x": 125,
         "y": 1760,
         "wires": [
-            []
+            [
+                "9873196535510a0d"
+            ]
         ]
     },
     {
@@ -627,7 +634,9 @@
         "x": 125,
         "y": 1920,
         "wires": [
-            []
+            [
+                "ce8dcbeed6162eed"
+            ]
         ]
     },
     {
@@ -653,7 +662,9 @@
         "x": 125,
         "y": 2080,
         "wires": [
-            []
+            [
+                "5b74632d0f90ee5a"
+            ]
         ]
     },
     {
@@ -670,8 +681,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 420,
-        "y": 460,
+        "x": 430,
+        "y": 500,
         "wires": []
     },
     {
@@ -683,7 +694,7 @@
         "order": 5,
         "width": "2",
         "height": "1",
-        "name": "Brillo",
+        "name": "Brillo Label",
         "label": "Brillo:",
         "format": "{{msg.payload}}",
         "layout": "row-left",
@@ -692,7 +703,7 @@
         "fontSize": 16,
         "color": "#717171",
         "className": "",
-        "x": 740,
+        "x": 670,
         "y": 640,
         "wires": []
     },
@@ -817,8 +828,8 @@
         "links": [
             "9080d3d8292150b7"
         ],
-        "x": 325,
-        "y": 500,
+        "x": 335,
+        "y": 540,
         "wires": []
     },
     {
@@ -835,8 +846,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 440,
-        "y": 500,
+        "x": 450,
+        "y": 540,
         "wires": []
     },
     {
@@ -849,9 +860,11 @@
             "24b253b78a7a0609"
         ],
         "x": 615,
-        "y": 900,
+        "y": 980,
         "wires": [
-            []
+            [
+                "204eaa0fe8c45c60"
+            ]
         ]
     },
     {
@@ -863,7 +876,7 @@
         "order": 8,
         "width": 0,
         "height": 0,
-        "name": "Segmentos",
+        "name": "Segmentos Label",
         "label": "Segmentos",
         "format": "{{msg.payload}}",
         "layout": "col-center",
@@ -872,7 +885,7 @@
         "fontSize": 16,
         "color": "#717171",
         "className": "",
-        "x": 760,
+        "x": 690,
         "y": 860,
         "wires": []
     },
@@ -881,22 +894,34 @@
         "type": "function",
         "z": "8547126888e8b68f",
         "g": "d9c5ded5c4b0d07e",
-        "name": "Colors",
-        "func": "const getColor = (/** @type {Array.<number>} */ elm) => elm.reduce((prev, cur) => prev + `${cur.toString(16).padStart(2, '0')}`, '#')\n\nconst [primary, secondary, tertiary] = (msg.payload)[0].col\n\nreturn {\n    primary: getColor(primary),\n    secondary: getColor(secondary),\n    tertiary: getColor(tertiary),\n}",
-        "outputs": 1,
+        "name": "Colores RGB -> HEX",
+        "func": "const { getHexFromRGB } = flow.get('UTILS')\n/** @type {[string, string, string]} */\nconst [pri, sec, ter] = (msg.payload)[0].col.map(color => getHexFromRGB(color))\n\nconst primary = { payload: pri }\nconst secondary = { payload: sec }\nconst tertiary = { payload: ter } \n\nreturn [ primary, secondary, tertiary ]\n",
+        "outputs": 3,
         "timeout": 0,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 720,
-        "y": 900,
+        "x": 760,
+        "y": 980,
         "wires": [
             [
-                "9671e8ee1e2dad7c",
-                "7978870f4e683225",
-                "c2e8ab761f3ae38f"
+                "ae8846d34d666554",
+                "9c5e16627aee88a6"
+            ],
+            [
+                "25531fa04d2f43aa",
+                "ea5340026ccc4afb"
+            ],
+            [
+                "c8b250a9e7e28599",
+                "71e1758536bb25fb"
             ]
+        ],
+        "outputLabels": [
+            "primary",
+            "secondary",
+            "tertiary"
         ]
     },
     {
@@ -919,41 +944,12 @@
         "sendOnBlur": true,
         "sendOnEnter": true,
         "className": "",
-        "x": 1060,
+        "x": 970,
         "y": 900,
         "wires": [
             [
                 "88e4ea03804ad804",
                 "b7e557deda1acf76"
-            ]
-        ]
-    },
-    {
-        "id": "9671e8ee1e2dad7c",
-        "type": "change",
-        "z": "8547126888e8b68f",
-        "g": "d9c5ded5c4b0d07e",
-        "name": "primary",
-        "rules": [
-            {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "primary",
-                "tot": "msg"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 890,
-        "y": 900,
-        "wires": [
-            [
-                "ae8846d34d666554",
-                "88e4ea03804ad804"
             ]
         ]
     },
@@ -987,35 +983,6 @@
         ]
     },
     {
-        "id": "7978870f4e683225",
-        "type": "change",
-        "z": "8547126888e8b68f",
-        "g": "d9c5ded5c4b0d07e",
-        "name": "secondary",
-        "rules": [
-            {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "secondary",
-                "tot": "msg"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 880,
-        "y": 980,
-        "wires": [
-            [
-                "25531fa04d2f43aa",
-                "9b9d05bf24fd7bd7"
-            ]
-        ]
-    },
-    {
         "id": "25531fa04d2f43aa",
         "type": "ui-text-input",
         "z": "8547126888e8b68f",
@@ -1035,11 +1002,12 @@
         "sendOnBlur": true,
         "sendOnEnter": true,
         "className": "",
-        "x": 1070,
+        "x": 980,
         "y": 980,
         "wires": [
             [
-                "9b9d05bf24fd7bd7"
+                "9b9d05bf24fd7bd7",
+                "25aaa34384ac2faf"
             ]
         ]
     },
@@ -1063,40 +1031,12 @@
         "sendOnBlur": true,
         "sendOnEnter": true,
         "className": "",
-        "x": 1060,
+        "x": 970,
         "y": 1060,
         "wires": [
             [
-                "696f7274e8a285f2"
-            ]
-        ]
-    },
-    {
-        "id": "c2e8ab761f3ae38f",
-        "type": "change",
-        "z": "8547126888e8b68f",
-        "g": "d9c5ded5c4b0d07e",
-        "name": "tertiary",
-        "rules": [
-            {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "tertiary",
-                "tot": "msg"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 900,
-        "y": 1060,
-        "wires": [
-            [
-                "c8b250a9e7e28599",
-                "696f7274e8a285f2"
+                "696f7274e8a285f2",
+                "1c975c1a358cd09d"
             ]
         ]
     },
@@ -1105,16 +1045,16 @@
         "type": "debug",
         "z": "8547126888e8b68f",
         "g": "d9c5ded5c4b0d07e",
-        "name": "primary",
-        "active": false,
+        "name": "PrimaryColor",
+        "active": true,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
+        "complete": "payload",
+        "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1010,
+        "x": 1170,
         "y": 860,
         "wires": []
     },
@@ -1123,8 +1063,8 @@
         "type": "debug",
         "z": "8547126888e8b68f",
         "g": "d9c5ded5c4b0d07e",
-        "name": "secondary",
-        "active": false,
+        "name": "SecondaryColor",
+        "active": true,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -1132,7 +1072,7 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1000,
+        "x": 1180,
         "y": 940,
         "wires": []
     },
@@ -1141,8 +1081,8 @@
         "type": "debug",
         "z": "8547126888e8b68f",
         "g": "d9c5ded5c4b0d07e",
-        "name": "tertiary",
-        "active": false,
+        "name": "TertiaryColor",
+        "active": true,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -1150,7 +1090,7 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 980,
+        "x": 1170,
         "y": 1020,
         "wires": []
     },
@@ -1159,15 +1099,15 @@
         "type": "function",
         "z": "8547126888e8b68f",
         "g": "d9c5ded5c4b0d07e",
-        "name": "Set Brillo Request",
-        "func": "const /** @type {string} */ color = msg.payload.slice(1)\n\nconst red = Number(`0x${color.slice(0, 2)}`)\nconst green = Number(`0x${color.slice(2, 4)}`)\nconst blue = Number(`0x${color.slice(4, 6)}`)\n\nconst state = flow.get('state')\n\nstate.seg[0].col[0] = [red, green, blue]\n\nreturn {\n    payload: state\n}",
+        "name": "Set Primary Request",
+        "func": "const { getRGBFromHEX } = flow.get('UTILS')\n/** @type {string} */\nconst color = msg.payload\n/** @type {[number, number, number]}*/\nconst rgb = getRGBFromHEX(color)\n\nconst state = { ...flow.get('state') }\n\nstate.seg[0].col[0] = [...rgb]\n\nreturn { payload: state }",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1260,
+        "x": 1200,
         "y": 900,
         "wires": [
             [
@@ -1185,8 +1125,8 @@
         "links": [
             "bb38f28216277023"
         ],
-        "x": 1405,
-        "y": 900,
+        "x": 1375,
+        "y": 980,
         "wires": []
     },
     {
@@ -1228,15 +1168,15 @@
         "id": "9259d065054d863b",
         "type": "function",
         "z": "8547126888e8b68f",
-        "name": "Array Color to Hex Color",
-        "func": "const getHexColor = (/** @type {Array<number>} */ arr) => arr.reduce((prev, curr) => prev + `${curr.toString(16).padStart(2, '0')}`, '#')\n\nconst /** @type {Array<number>} */ arrayColors = flow.get('wled').state.seg[0].col\n\nconst primary = getHexColor(arrayColors[0])\nconst secondary = getHexColor(arrayColors[1])\nconst tertiary = getHexColor(arrayColors[2])\nconst colors = { primary, secondary, tertiary }\n\nflow.set('colors', colors)\n\nreturn msg",
+        "name": "Array RGB Colors -> Array Hex Colors",
+        "func": "const { getHexFromRGB } = flow.get('UTILS')\n\n/** @type {[number, number, number]} */\nconst arrayColors = [...msg.payload.state.seg[0].col]\n/** @type {string} */\nconst primary = getHexFromRGB(arrayColors[0])\n/** @type {string} */\nconst secondary = getHexFromRGB(arrayColors[1])\n/** @type {string} */\nconst tertiary = getHexFromRGB(arrayColors[2])\n\nconst colors = { primary, secondary, tertiary }\n\nflow.set('colors', colors)\n\nreturn msg",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 950,
+        "x": 990,
         "y": 160,
         "wires": [
             [
@@ -1312,8 +1252,8 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 240,
-        "y": 640,
+        "x": 250,
+        "y": 780,
         "wires": []
     },
     {
@@ -1330,8 +1270,8 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 230,
-        "y": 560,
+        "x": 240,
+        "y": 700,
         "wires": []
     },
     {
@@ -1358,8 +1298,8 @@
                 "valueValue": ""
             }
         ],
-        "x": 230,
-        "y": 600,
+        "x": 240,
+        "y": 740,
         "wires": [
             [
                 "16b3ca1f4458d4b7",
@@ -1378,8 +1318,8 @@
             "9690ddef717a298d",
             "c586653170702612"
         ],
-        "x": 95,
-        "y": 600,
+        "x": 105,
+        "y": 740,
         "wires": [
             [
                 "c15659d93ecda454",
@@ -1397,8 +1337,8 @@
         "links": [
             "6c4d2dc073368a87"
         ],
-        "x": 365,
-        "y": 600,
+        "x": 375,
+        "y": 740,
         "wires": []
     },
     {
@@ -1542,7 +1482,7 @@
         "y": 80,
         "wires": [
             [
-                "840b8a62cf4f8340"
+                "455cba4abce5d81f"
             ]
         ]
     },
@@ -1638,8 +1578,8 @@
         "links": [
             "0f7d40fda2867dcd"
         ],
-        "x": 325,
-        "y": 420,
+        "x": 335,
+        "y": 460,
         "wires": []
     },
     {
@@ -1660,8 +1600,8 @@
                 "module": "fast-deep-equal/es6"
             }
         ],
-        "x": 210,
-        "y": 460,
+        "x": 220,
+        "y": 500,
         "wires": [
             [
                 "6d162ed7daed6bfd",
@@ -1732,6 +1672,200 @@
         "x": 960,
         "y": 320,
         "wires": []
+    },
+    {
+        "id": "455cba4abce5d81f",
+        "type": "function",
+        "z": "8547126888e8b68f",
+        "name": "Set Utils",
+        "func": "/**\n * @function\n * @param {[number, number, number]} rgb\n * @return {string}\n*/\nconst getHexFromRGB = rgb => (\n    rgb.reduce((prev, curr) => prev + `${curr.toString(16).padStart(2, '0')}`, '#')\n)\n\n/**\n * @function\n * @param {string} hex\n * @return {[number, number, number]}\n*/\nconst getRGBFromHEX = hex => {\n    const color = hex.slice(1)\n    const red = Number(`0x${color.slice(0, 2)}`)\n    const green = Number(`0x${color.slice(2, 4)}`)\n    const blue = Number(`0x${color.slice(4, 6)}`)\n    return [red, green, blue]\n}\n\n// UTILS\nconst UTILS = {\n    getHexFromRGB,\n    getRGBFromHEX\n}\nflow.set('UTILS', UTILS)\n\nreturn msg",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 560,
+        "y": 80,
+        "wires": [
+            [
+                "840b8a62cf4f8340"
+            ]
+        ]
+    },
+    {
+        "id": "25aaa34384ac2faf",
+        "type": "function",
+        "z": "8547126888e8b68f",
+        "g": "d9c5ded5c4b0d07e",
+        "name": "Set Secondary Request",
+        "func": "const { getRGBFromHEX } = flow.get('UTILS')\n/** @type {string} */\nconst color = msg.payload.slice(1)\n/** @type {[number, number, number]}*/\nconst rgb = getRGBFromHEX(color)\n\nconst state = { ...flow.get('state') }\n\nstate.seg[0].col[1] = [...rgb]\n\nreturn { payload: state }",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1210,
+        "y": 980,
+        "wires": [
+            [
+                "9690ddef717a298d"
+            ]
+        ]
+    },
+    {
+        "id": "1c975c1a358cd09d",
+        "type": "function",
+        "z": "8547126888e8b68f",
+        "g": "d9c5ded5c4b0d07e",
+        "name": "Set Tertiary Request",
+        "func": "const { getRGBFromHEX } = flow.get('UTILS')\n/** @type {string} */\nconst color = msg.payload.slice(1)\n/** @type {[number, number, number]}*/\nconst rgb = getRGBFromHEX(color)\n\nconst state = { ...flow.get('state') }\n\nstate.seg[0].col[2] = [...rgb]\n\nreturn { payload: state }",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1200,
+        "y": 1060,
+        "wires": [
+            [
+                "9690ddef717a298d"
+            ]
+        ]
+    },
+    {
+        "id": "9c5e16627aee88a6",
+        "type": "debug",
+        "z": "8547126888e8b68f",
+        "g": "d9c5ded5c4b0d07e",
+        "name": "Primary",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 960,
+        "y": 860,
+        "wires": []
+    },
+    {
+        "id": "ea5340026ccc4afb",
+        "type": "debug",
+        "z": "8547126888e8b68f",
+        "g": "d9c5ded5c4b0d07e",
+        "name": "Secondary",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 970,
+        "y": 940,
+        "wires": []
+    },
+    {
+        "id": "71e1758536bb25fb",
+        "type": "debug",
+        "z": "8547126888e8b68f",
+        "g": "d9c5ded5c4b0d07e",
+        "name": "Tertiary",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 960,
+        "y": 1020,
+        "wires": []
+    },
+    {
+        "id": "9873196535510a0d",
+        "type": "change",
+        "z": "8547126888e8b68f",
+        "g": "21d3c36381360c98",
+        "name": "Set Info",
+        "rules": [
+            {
+                "t": "set",
+                "p": "info",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 240,
+        "y": 1760,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "ce8dcbeed6162eed",
+        "type": "change",
+        "z": "8547126888e8b68f",
+        "g": "6c6d72df65cf6029",
+        "name": "Set Effects",
+        "rules": [
+            {
+                "t": "set",
+                "p": "effects",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 250,
+        "y": 1920,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "5b74632d0f90ee5a",
+        "type": "change",
+        "z": "8547126888e8b68f",
+        "g": "5617361488b9b6af",
+        "name": "Set Palettes",
+        "rules": [
+            {
+                "t": "set",
+                "p": "palettes",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 250,
+        "y": 2080,
+        "wires": [
+            []
+        ]
     },
     {
         "id": "f7f46f00ec761812",
