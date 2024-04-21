@@ -68,3 +68,38 @@ type state = {
     }>
 }
 ```
+### Un ejemplo de uso de curl para cambios de estado rapidos
+desde un equipo configurado en la misma wifi que los dispositivos wled, y sabiendo que tienen las IPs 192.168.121.50 y 51:
+```
+#!/bin/bash
+while true
+do
+curl -X POST "http://192.168.121.50/json/state" -H "Content-Type: application/json" --data "@off.json"
+curl -X POST "http://192.168.121.51/json/state" -H "Content-Type: application/json" --data "@off.json"
+sleep 0.1
+curl -X POST "http://192.168.121.51/json/state" -H "Content-Type: application/json" --data "@on.json"
+curl -X POST "http://192.168.121.50/json/state" -H "Content-Type: application/json" --data "@on.json"
+sleep 0.1
+done
+```
+
+los json on y off:
+
+on.json:
+```
+{"on":true,"bri":255,"transition":0,"ps":-1,"pl":-1,"nl":{"on":false,"dur":60,"mode":1,"tbri":0,"rem":-1},"udpn":{"send":false,"recv":true,"sgrp":1,"rgrp":1},"lor":0,"mainseg":0,"seg":[{"id":0,"start":0,"stop":200,"len":200,"grp":1,"spc":0,"of":0,"on":true,"frz":false,"bri":255,"cct":127,"set":0,"col":[[0,247,255],[0,0,0],[0,0,0]],"fx":0,"sx":128,"ix":128,"pal":0,"c1":128,"c2":128,"c3":16,"sel":true,"rev":false,"mi":false,"o1":false,"o2":false,"o3":false,"si":0,"m12":0}]}
+```
+
+off.json:
+```
+{"on":false,"bri":255,"transition":0,"ps":-1,"pl":-1,"nl":{"on":false,"dur":60,"mode":1,"tbri":0,"rem":-1},"udpn":{"send":false,"recv":true,"sgrp":1,"rgrp":1},"lor":0,"mainseg":0,"seg":[{"id":0,"start":0,"stop":200,"len":200,"grp":1,"spc":0,"of":0,"on":true,"frz":false,"bri":255,"cct":127,"set":0,"col":[[0,247,255],[0,0,0],[0,0,0]],"fx":0,"sx":128,"ix":128,"pal":0,"c1":128,"c2":128,"c3":16,"sel":true,"rev":false,"mi":false,"o1":false,"o2":false,"o3":false,"si":0,"m12":0}]}
+```
+
+dentro del propio json se pueden definir los segmentos de la tira, dentro de la entrada:
+```
+"seg":[...]
+```
+
+### usando ledFX como puente entre el audio y los wled
+
+[LedFx](https://www.ledfx.app/) es un software que transforma una señal de audio en un espectáculo de luces led en tiempo real (de la documentacion del proyecto). En nuestro caso, es el interfaz entre la voz de las personas que leen los poemas de GF en voz alta, y la estructura interactiva de leds que sirve de escenario para esa lectura. Puede localizar dispositivos ya configurados con wled en la red local, y controlarlos, simplificando la gestión de las tiras de LEDs. Además, puede controlar dispositivos OSC, por lo que puede ser un elemento interesante para escucha interactiva en shows audiovisuales...
